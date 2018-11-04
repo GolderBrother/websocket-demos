@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>websocket-test</title>
+</head>
+<body>
+    <h2>websocket-test1</h2>
+    <script>
+        // 原生的websocket
+        // 只需要new一下就可以创建一个websocket的实例
+        // 我们要去连接ws协议
+        // 这里对应的端口就是服务端设置的端口号9999
+        let ws = new WebSocket("ws://localhost:9999");
+        // open事件是客户端与服务端建立连接后触发
+        ws.onopen = () => {
+            ws.send("哎呦，不错哦！")
+        }
+
+        //onmessage事件是服务端给客户端发来消息时触发
+        ws.onmessage = (res) => {
+            console.log(res);
+            console.log(res.data);
+        }
+
+        //onmessage事件是客户端和服务端断开连接触发
+        ws.onclose = (e) => {
+            console.log(e, "onclose")
+        }
+
+        //onmessage事件是客户端和服务端发生错误时触发
+        ws.onerror = (e) => {
+            console.log(e);
+        }
+    </script>
+</body>
+</html>

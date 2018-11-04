@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>websocket-chat</title>
+    <!-- 引入bootstrap.css文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <style>
+        /*这里简单写下用户名和发送内容的样式*/
+        .user {
+            color: #00a1f4;
+            cursor: pointer;
+        }
+
+        .container{
+            margin-top: 10px;
+        }
+
+        .content {
+            display: inline-block;
+            padding: 6px 10px;
+            background-color: #00a1f4;
+            border-radius: 8px;
+            color: #fff;
+        }
+        
+        .alert{
+            display: block;
+            margin-bottom: 0;
+            opacity: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2 class="text-center">websocket-chat</h2>
+    <div class="alert alert-danger text-center" role="alert"></div>
+    <!-- 主内容结构 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h4 class="text-center">放轻松，聊聊天</h4>
+                        <div class="row">
+                            <div class="col-xs-6 text-center">
+                                <button id="join-Jay" class="btn btn-primary" onclick="join('Jay')">进入杰伦战队群</button>
+                                <button id="leave-Jay" class="btn btn-primary" onclick="leave('Jay')" style="display: none;">离开杰伦战队群</button>
+                            </div>
+                            <div class="col-xs-6 text-center">
+                                <button id="join-Tse" class="btn btn-success" onclick="join('Tse')">进入霆锋战队群</button>
+                                <button id="leave-Tse" class="btn btn-success" onclick="leave('Tse')" style="display: none;">离开霆锋战队群</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <ul id="list" class="list-group" style="height: 300px;overflow: auto;">
+                            
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <input type="text" placeholder="刚进来请先提交您的大名！" class="form-control" id="input">
+                            </div>
+                            <div class="col-xs-1">
+                                <button class="btn btn-info" id="sendBtn">发送</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 引入socket.io.js 这里需要服务端配合开启http服务才能引入得到-->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

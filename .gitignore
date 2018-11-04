@@ -1,0 +1,11 @@
+# dependencies
+/node_modules
+*/node_modules
+websocket-chat/node_modules
+websocket-test/*/node_modules
+websocket-test/test1/node_modules
+websocket-test/test2/node_modules
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
